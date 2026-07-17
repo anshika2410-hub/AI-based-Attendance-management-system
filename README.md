@@ -63,7 +63,10 @@ An AI-powered attendance management system that uses face recognition to automat
 
 New students can directly register from the Student Dashboard before using the attendance system.
 
-![Student Registration](screenshots/student-register.png)
+<p>
+  <img src="screenshots/student-dashboard.png" width="56%">
+    <img src="screenshots/student-registered.png" width="35%">
+</p>
 
 ---
 
@@ -89,7 +92,7 @@ Teachers can securely log in to access attendance records and manage students.
 
 ### 📋 Attendance Report
 
-![Attendance Records](screenshots/records.png)
+![Attendance Records](screenshots/attendance-report.png)
 
 ## 📁 Project Structure
 
