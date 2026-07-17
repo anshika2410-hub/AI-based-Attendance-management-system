@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Attendance Reports</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>🎓 AI Attendance</h2>
+
+        <a href="/admin_dashboard">
+            <i class="fas fa-home"></i> Dashboard
+        </a>
+
+        <a href="/start_attendance">
+            <i class="fas fa-video"></i> Start Attendance
+        </a>
+
+        <a href="/stop_attendance">
+            <i class="fas fa-stop-circle"></i> Stop Attendance
+        </a>
+
+        <a href="/students">
+            <i class="fas fa-user-graduate"></i> Students
+        </a>
+
+        <a href="/attendance_records">
+            <i class="fas fa-calendar-check"></i> Attendance Records
+        </a>
+
+        <a href="/reports">
+            <i class="fas fa-chart-line"></i> Reports
+        </a>
+
+        <a href="/">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="topbar">
+
+            <h1>Attendance Reports</h1>
+
+            <p>{{ today }}</p>
+
+        </div>
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Students</h3>
+                <h2>{{ total_students }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Present</h3>
+                <h2>{{ present }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Absent</h3>
+                <h2>{{ absent }}</h2>
+            </div>
+
+            <div class="card">
+                <h3>Attendance %</h3>
+                <h2>{{ percentage }}%</h2>
+            </div>
+
+        </div>
+
+        <!-- Date Selector -->
+
+        <div class="filter-box">
+
+            <form method="GET">
+
+                <select name="file">
+
+                    {% for file in files %}
+
+                    <option value="{{ file }}"
+                    {% if file == selected_file %}selected{% endif %}>
+
+                        {{ file.replace("attendance_","").replace(".csv","") }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+                <button type="submit" class="btn student">
+                    Show Report
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Table -->
+
+        <div class="table-box">
+
+            <h2>Attendance Details</h2>
+
+            <table>
+
+                <tr>
+
+                    <th>Student Name</th>
+
+                    <th>Date</th>
+
+                    <th>Time</th>
+
+                </tr>
+
+                {% if students %}
+
+                    {% for student in students %}
+
+                    <tr>
+
+                        <td>{{ student.Student }}</td>
+
+                        <td>{{ student.Date }}</td>
+
+                        <td>{{ student.Time }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <tr>
+
+                        <td colspan="3" style="text-align:center;">
+                            No attendance found.
+                        </td>
+
+                    </tr>
+
+                {% endif %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

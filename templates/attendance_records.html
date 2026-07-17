@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+        <h2>🎓 AI Attendance</h2>
+
+        <a href="/admin_dashboard">
+            <i class="fas fa-home"></i> Dashboard
+        </a>
+
+        <a href="/start_attendance">
+            <i class="fas fa-video"></i> Start Attendance
+        </a>
+        <a href="/stop_attendance">
+            <i class="fas fa-video"></i> Stop Attendance
+        </a>
+
+        <a href="/students">
+            <i class="fas fa-user-graduate"></i> Students
+        </a>
+
+        <a href="/attendance_records">
+            <i class="fas fa-calendar-check"></i> Attendance Records
+        </a>
+
+        <a href="/reports">
+            <i class="fas fa-chart-line"></i> Reports
+        </a>
+
+
+        <a href="/index">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+
+    </div>
+
+<div class="main">
+
+    <h1>Attendance Records</h1>
+    <div class="cards">
+         <div class="card">
+            <h3>Total Students</h3>
+                <h2>{{ total_students }}</h2>
+         </div>
+        <div class="card">
+            <h3>Present Today</h3>
+            <h2>{{ total }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>System Status</h3>
+            <h2>🟢 Active</h2>
+        </div>
+
+    </div>
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th align="left">Student</th>
+                <th align="left">Date</th>
+                <th align="left">Time</th>
+            </tr>
+
+            {% for row in attendance %}
+
+            <tr>
+                <td>{{ row.Student }}</td>
+                <td>{{ row.Date }}</td>
+                <td>{{ row.Time }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

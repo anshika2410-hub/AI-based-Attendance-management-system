@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Students</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>🎓 AI Attendance</h2>
+
+        <a href="/admin_dashboard">
+            <i class="fas fa-home"></i> Dashboard
+        </a>
+
+        <a href="/start_attendance">
+            <i class="fas fa-video"></i> Start Attendance
+        </a>
+
+        <a href="/stop_attendance">
+            <i class="fas fa-stop-circle"></i> Stop Attendance
+        </a>
+
+        <a href="/students">
+            <i class="fas fa-user-graduate"></i> Students
+        </a>
+
+        <a href="/attendance_records">
+            <i class="fas fa-calendar-check"></i> Attendance Records
+        </a>
+
+        <a href="/reports">
+            <i class="fas fa-chart-line"></i> Reports
+        </a>
+
+        <a href="/">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+        <div class="topbar">
+
+            <h1>Registered Students</h1>
+
+            <p>{{ today }}</p>
+
+        </div>
+
+        <!-- Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Students</h3>
+                <h2>{{ total_students }}</h2>
+            </div>
+
+        </div>
+
+        <!-- Table -->
+        <div class="table-box">
+
+            <h2>Student List</h2>
+
+            <table>
+
+<tr>
+    <th align="left">Photo</th>
+    <th align="left">Student ID</th>
+    <th align="left">Student Name</th>
+    <th align="left">Action</th>
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+    <td>
+        {% if student.photo %}
+       <img src="{{ url_for('student_image', filename=student.photo) }}"
+     width="60"
+     height="60"
+     style="border-radius:50%;">
+        {% else %}
+        No Photo
+        {% endif %}
+    </td>
+
+    <td>{{ student.id }}</td>
+
+    <td>{{ student.name }}</td>
+
+    <td>
+    <a href="/delete_student/{{ student.id }}"
+       class="delete-btn"
+       onclick="return confirm('Delete this student?')">
+        <i class="fas fa-trash"></i> Delete
+    </a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
