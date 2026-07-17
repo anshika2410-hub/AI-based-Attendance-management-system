@@ -28,15 +28,14 @@ An AI-powered attendance management system that uses face recognition to automat
 ## ✨ Features
 
 - AI-powered face recognition attendance
-- Real-time face detection using OpenCV
-- Secure authentication system
-- Role-based access (Student & Teacher)
-- Student Dashboard
+- Student self-registration
+- Secure Teacher Login
 - Teacher Dashboard
+- Student Dashboard
 - Automatic attendance marking
-- Attendance history and records
+- Attendance records management
 - Duplicate attendance prevention
-- Responsive web interface
+- Real-time face detection using OpenCV
 
 ---
 
@@ -51,6 +50,46 @@ An AI-powered attendance management system that uses face recognition to automat
 - JavaScript
 
 ---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home](screenshots/home.png)
+
+---
+
+### 👨‍🎓 Student Registration
+
+New students can directly register from the Student Dashboard before using the attendance system.
+
+![Student Registration](screenshots/student-register.png)
+
+---
+
+### 👨‍🏫 Teacher Login
+
+Teachers can securely log in to access attendance records and manage students.
+
+![Teacher Login](screenshots/teacher-login.png)
+
+---
+
+### 👨‍🏫 Teacher Dashboard
+
+![Teacher Dashboard](screenshots/teacher-dashboard.png)
+
+---
+
+### 📷 Face Recognition Attendance
+
+![Face Recognition](screenshots/attendance.png)
+
+---
+
+### 📋 Attendance Report
+
+![Attendance Records](screenshots/records.png)
 
 ## 📁 Project Structure
 
