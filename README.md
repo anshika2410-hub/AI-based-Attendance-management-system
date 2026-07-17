@@ -92,7 +92,10 @@ Teachers can securely log in to access attendance records and manage students.
 
 ### 📋 Attendance Report
 
-![Attendance Records](screenshots/attendance-report.png)
+<p>
+  <img src="screenshots/attendance-report.png" width="50%">
+    <img src="screenshots/attendance-report-2.png" width="45%">
+</p>
 
 ## 📁 Project Structure
 
